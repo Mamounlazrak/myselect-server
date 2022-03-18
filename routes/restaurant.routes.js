@@ -114,11 +114,18 @@ router.get('/restaurants/:restaurantId', (req, res, next) => {
             .catch((err) => console.log(err))
   })
 
+  // router.get('/restaurant-of-the-week', (req, res, next) => {
+  //   Restaurant.findOne({ofTheWeek: true})
+  //     .then((restaurant) => res.json(restaurant))
+  //     .catch((err) => res.json(err))
+  // })  
+
+
   router.get('/restaurant-of-the-week', (req, res, next) => {
-    Restaurant.findOne({ofTheWeek: true})
-      .then((restaurant) => res.json(restaurant))
+    Restaurant.find({ofTheWeek: true})
+      .then((restaurants) => res.json(restaurants))
       .catch((err) => res.json(err))
-  })  
+  }) 
 
   
   
